@@ -31,16 +31,39 @@ namespace lab11
         {
             g = CreateGraphics();
             g.Clear(Color.Silver);
-            g.DrawEllipse(Pens.Black, 100, 100, 300,200);
+            g.DrawEllipse(Pens.Black, 400, 20, 300,200);
             g.DrawRectangle(Pens.Black, 410, 150, 100, 250);
             g.DrawLine(Pens.Black, 600, 600, 700, 300);
             
             
-            g.FillRectangle(Brushes.Purple, 300, 250, 100, 200);
-            g.FillEllipse(Brushes.Black, 600, 500, 200, 100);
+            g.FillRectangle(Brushes.Purple, 350, 100, 100, 200);
+            g.FillEllipse(Brushes.Black, 500, 180, 400, 100);
 
-            // Create solid brush.
+
+            Brush blueBrush = new SolidBrush(Color.Blue);
+
+            // Create points that define polygon.
+            Point points1 = new Point(100, 100);
+            Point points2 = new Point(200, 50);
+            Point points3 = new Point(200, 5);
+            Point points4 = new Point(250, 50);
+            Point points5 = new Point(300, 100);
+            Point points6 = new Point(350, 200);
+            Point points7 = new Point(350, 350);
+            Point[] curvePoints = { 
+                points1,
+                points2, 
+                points3, 
+                points4, 
+                points5, 
+                points6, 
+                points7 
+            };
+
             
+
+            // Draw polygon to screen.
+            e.Graphics.FillPolygon(blueBrush, curvePoints);
 
 
 
@@ -71,7 +94,7 @@ namespace lab11
             pen1.DashStyle = DashStyle.DashDotDot;
             g.DrawEllipse(pen1, 15, 15, 50, 50);
             pen1.DashStyle = DashStyle.Dot;
-            g.DrawPie(pen1, 780, 350, 400, 350, 320, 250);
+            g.DrawPie(pen1, 580, 250, 400, 350, 320, 250);
             g.DrawPolygon(pen, new Point[]
             {
                 point1,
@@ -82,8 +105,9 @@ namespace lab11
                 point6,
                 point7
             });
-
             
+
+
 
 
 
